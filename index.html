@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Matching Game</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alef|Monoton|Fredoka+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/memory.css">
+</head>
+<body>
+
+    <header>
+        <h1>Matching game</h1>
+    </header>
+    <section>
+        <form>
+            Your level: <select id="nbPairs">
+                <option value="8">Child</option>
+                <option value="12">Man</option>
+                <option value="18">Woman</option>
+                <option value="2">Al S. Heimer</option>
+            </select>
+            <button id="startGame" class="button-default"><i class="fa fa-refresh"></i> New game</button>
+        </form>
+    </section>
+    <section>
+        <span id="rating">Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></span>
+        <span id="moves"></span>
+        <span id="timer"></span>
+
+    </section>
+    <main>
+        <div id="deck">
+            <div class="card">
+                <div class="card-back"></div>
+                <div class="card-front"><i class="fa fa-car"></i></div>
+            </div>
+            <div class="card">
+                <div class="card-back"></div>
+                <div class="card-front"><i class="fa fa-car"></i></div>
+            </div>
+            <div class="card">
+                <div class="card-back"></div>
+                <div class="card-front"><i class="fa fa-car"></i></div>
+            </div>
+        </div>
+    </main>
+    <script src="js/memory.js"></script>
+</body>
+</html>

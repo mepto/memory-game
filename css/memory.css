@@ -1,0 +1,107 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+/*    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");*/
+    background: #262626;
+/*    background: #9FD846;*/
+    color: #fff;
+    font-family: 'Alef', sans-serif;
+    padding: 5px 10px;
+}
+
+h1 {
+    color: #9FD846;
+    font-family: 'Fredoka One', cursive;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+section {
+    margin: 15px 0;
+}
+
+.button-default,
+select,
+option {
+    border: 0 none transparent;
+    font-family: 'Alef', sans-serif;
+    font-size: 16px;
+}
+
+.button-default, .button-default .fa-refresh {
+    background: #9FD846;
+    color: #000;
+
+}
+
+.button-default:hover, .button-default:hover .fa-refresh {
+    background: #00A6D4;
+    color: #fff;
+}
+
+.button-default:active {
+    background: #0084A8;
+}
+
+.fa {
+    color: #000;
+    font-size: 30px;
+}
+
+.fa-refresh {
+    color: #000;
+    font-size: 16px
+}
+
+.fa-star,
+.fa-star-o {
+    color: #ffd900;
+    font-size: 16px;
+    padding: 0 3px 0 0;
+}
+
+.fa-star {
+    color: #ffd900;
+}
+
+#deck {
+    background: #042624;
+    border-radius: 3px;
+    overflow: auto;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 3px;
+    float: left;
+    height: 100px;
+    overflow: auto;
+    margin: 15px;
+    position: relative;
+    width: 100px;
+}
+
+.card-front,
+.card-back {
+    border-radius: 3px;
+    height: 100px;
+    padding: 20px;
+    position: absolute;
+    width: 100px;
+}
+
+.card-front {
+    background: #f7ffea;
+    display: none;
+}
+
+.card-back {
+    background: linear-gradient(30deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(150deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(30deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(150deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(60deg, rgba(66,0,56,0.7) 25%, transparent 25.5%, transparent 75%, rgba(66,0,56,0.7) 75%, rgba(66,0,56,0.7) 0), linear-gradient(60deg, rgba(66,0,56,0.7) 25%, transparent 25.5%, transparent 75%, rgba(66,0,56,0.7) 75%, rgba(66,0,56,0.7) 0), rgba(66,0,56,0.3);
+    background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
+    background-size: 16px 28px;
+    border: 3px solid #8E0079;
+}
