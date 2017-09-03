@@ -66,13 +66,13 @@ option {
     color: #ffd900;
 }
 
-#deck {
+main {
     /*    background: #8B3926;*/
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");
     border-radius: 5px;
     display: inline-block;
     overflow: auto;
-    margin: 20px 0;
+    margin: 0 0 20px 0;
     padding: 20px;
 }
 
@@ -114,21 +114,33 @@ option {
 
 #scoreBoard {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
+#timer, #moves, #rating {
+    min-width: 100px;
+    text-align: center;
+}
 #timer {
     font-family: 'Droid Sans Mono';
+}
+
+#moves, #rating {
+    font-family: 'Alef', sans-serif;
 }
 
 #timer:before {
     content: '\f017';
     font-family: 'Fontawesome';
-    margin: 0 5px 00;
+    margin: 0 5px 0 0;
 }
 
 #moves:before {
     content: '\f080';
     font-family: 'Fontawesome';
-    margin: 0 5px 00;
+    margin: 0 5px 0 0;
+}
+#moves:after {
+    content: 'moves';
+    margin: 0 0 0 5px;
 }

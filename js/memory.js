@@ -32,6 +32,7 @@
     let CardSet = function () {
         this.length = 8;
         this.cards = [];
+        this.cardsToMatch = [];
         this.moves = 0;
         this.found = 0;
     };
@@ -47,6 +48,14 @@
             e.preventDefault();
             clearBoard();
         })
+    }
+
+    function listenCards() {
+        for (let i = 0; i < cardSet.cards.length; i++) {
+            document.getElementsByClassName('card')[i].addEventListener("click", function(e) {
+                flipCard(this);
+            });
+        }
     }
 
     function clearBoard() {
@@ -77,14 +86,14 @@
             cardSet.cards.push(cards[randomNb]);
             randomNb++;
         }
+        //shuffle selected cards
         shuffle(cardSet.cards);
-//        console.log(cardSet.cards);
         displayCards();
     }
 
     //https://bost.ocks.org/mike/shuffle/compare.html
     function shuffle(allCards) {
-        var currentCard = allCards.length,
+        let currentCard = allCards.length,
             swap, remainingCard;
 
         // While there remain elements to shuffle…
@@ -100,7 +109,7 @@
     }
 
     function displayCards() {
-        const deck = document.getElementById('deck');
+        var deck = document.getElementById('deck');
         for (let i = 0; i < cardSet.cards.length; i++) {
             let currentCard = document.createElement('div');
             currentCard.className = 'card';
@@ -109,12 +118,23 @@
                     <div class="card-back"></div>\
                     <div class="card-front"><i class="fa fa-' + cardSet.cards[i] + '"></i></div>';
         }
-
+        listenCards();
     }
 
 
     function flipCard(elem) {
 
+        if (elem.classList.contains("turned")) {
+//            console.log(elem);
+
+        } else {
+            elem.classList.add("turned");
+            const currentCard = elem.childNodes[3].childNodes[0];
+            cardSet.cardsToMatch.push(currentCard);
+
+            console.log(currentCard);
+        }
+//        console.log(elem);
     }
 
     function checkMatch() {
