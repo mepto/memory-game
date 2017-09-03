@@ -1,12 +1,11 @@
-
 * {
     box-sizing: border-box;
 }
 
 body {
-/*    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");*/
+    /*    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");*/
     background: #262626;
-/*    background: #9FD846;*/
+    /*    background: #9FD846;*/
     color: #fff;
     font-family: 'Alef', sans-serif;
     padding: 5px 10px;
@@ -31,24 +30,20 @@ option {
     font-size: 16px;
 }
 
-.button-default, .button-default .fa-refresh {
+.button-default,
+.button-default .fa-refresh {
     background: #9FD846;
     color: #000;
-
 }
 
-.button-default:hover, .button-default:hover .fa-refresh {
+.button-default:hover,
+.button-default:hover .fa-refresh {
     background: #00A6D4;
     color: #fff;
 }
 
 .button-default:active {
     background: #0084A8;
-}
-
-.fa {
-    color: #000;
-    font-size: 30px;
 }
 
 .fa-refresh {
@@ -68,11 +63,18 @@ option {
 }
 
 #deck {
-    background: #042624;
-    border-radius: 3px;
+    /*    background: #8B3926;*/
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");
+    border-radius: 5px;
+    display: inline-block;
     overflow: auto;
     margin: 20px 0;
     padding: 20px;
+}
+
+.card .fa {
+    color: #000;
+    font-size: 60px;
 }
 
 .card {
@@ -100,8 +102,8 @@ option {
 }
 
 .card-back {
-    background: linear-gradient(30deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(150deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(30deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(150deg, rgba(66,0,56,1) 12%, transparent 12.5%, transparent 87%, rgba(66,0,56,1) 87.5%, rgba(66,0,56,1) 0), linear-gradient(60deg, rgba(66,0,56,0.7) 25%, transparent 25.5%, transparent 75%, rgba(66,0,56,0.7) 75%, rgba(66,0,56,0.7) 0), linear-gradient(60deg, rgba(66,0,56,0.7) 25%, transparent 25.5%, transparent 75%, rgba(66,0,56,0.7) 75%, rgba(66,0,56,0.7) 0), rgba(66,0,56,0.3);
+    background: linear-gradient(30deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(150deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(30deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(150deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(60deg, #41581D 25%, transparent 25.5%, transparent 75%, #41581D 75%, #41581D 0), linear-gradient(60deg, #41581D 25%, transparent 25.5%, transparent 75%, #41581D 75%, #41581D 0), #BEDE8B;
     background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
     background-size: 16px 28px;
-    border: 3px solid #8E0079;
+    border: 3px solid #eefcd9;
 }
