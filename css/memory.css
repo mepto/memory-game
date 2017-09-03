@@ -51,6 +51,10 @@ option {
     font-size: 16px
 }
 
+.fa-clock {
+    color: #fff;
+}
+
 .fa-star,
 .fa-star-o {
     color: #ffd900;
@@ -106,4 +110,25 @@ option {
     background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
     background-size: 16px 28px;
     border: 3px solid #eefcd9;
+}
+
+#scoreBoard {
+    display: flex;
+    justify-content: space-between;
+}
+
+#timer {
+    font-family: 'Droid Sans Mono';
+}
+
+#timer:before {
+    content: '\f017';
+    font-family: 'Fontawesome';
+    margin: 0 5px 00;
+}
+
+#moves:before {
+    content: '\f080';
+    font-family: 'Fontawesome';
+    margin: 0 5px 00;
 }
