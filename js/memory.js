@@ -3,7 +3,7 @@
 (function () {
 
     //but why can shuffle modify it when it's defined as const?
-    const cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribbble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad', 'gears', 'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon-o', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'user-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-three-quarters', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
+    const cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribbble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad',  'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon-o', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'user-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-three-quarters', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
 
 
     let ScoreBoard = function () {
@@ -43,6 +43,7 @@
             this.cards = [];
             this.cardsToMatch = [];
             this.moves = 0;
+            document.getElementById('moves').innerHTML = this.moves;
             this.found = 0;
         }
     };
@@ -152,9 +153,12 @@
         for (let i = 0; i < cardSet.cardsToMatch.length; i++) {
             turnedCards.push(cardSet.cardsToMatch[i].parentNode.parentNode);
         }
-        if (cardSet.cardsToMatch[0] == cardSet.cardsToMatch[1]) {
-            alert('bravo');
+
+
+        if (cardSet.cardsToMatch[0].outerHTML === cardSet.cardsToMatch[1].outerHTML) {
+            console.log('the same exactly');
         } else {
+            console.log('different');
             for (let i = 0; i < turnedCards.length; i++) {
                 turnedCards[i].classList.add('wrong-card');
             }
