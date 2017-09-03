@@ -3,7 +3,7 @@
 (function () {
 
     //but why can shuffle modify it when it's defined as const?
-    const cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad', 'gears', 'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'ser-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-3', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
+    const cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribbble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad', 'gears', 'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon-o', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'user-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-three-quarters', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
 
 
     let ScoreBoard = function () {
@@ -34,7 +34,17 @@
         this.cards = [];
         this.cardsToMatch = [];
         this.moves = 0;
+        this.updateMoves = function() {
+            this.moves +=1;
+            document.getElementById('moves').innerHTML = this.moves;
+        };
         this.found = 0;
+        this.resetCardSet = function () {
+            this.cards = [];
+            this.cardsToMatch = [];
+            this.moves = 0;
+            this.found = 0;
+        }
     };
 
     //instantiate new cardset and scoreboard
@@ -52,7 +62,7 @@
 
     function listenCards() {
         for (let i = 0; i < cardSet.cards.length; i++) {
-            document.getElementsByClassName('card')[i].addEventListener("click", function(e) {
+            document.getElementsByClassName('card')[i].addEventListener("click", function (e) {
                 flipCard(this);
             });
         }
@@ -63,6 +73,7 @@
         document.getElementById('deck').innerHTML = '';
         if (scoreBoard instanceof ScoreBoard) {
             scoreBoard.resetTimer();
+            cardSet.resetCardSet();
         }
         // set new cards and scoreboard
         cardSet = new CardSet();
@@ -124,21 +135,37 @@
 
     function flipCard(elem) {
 
-        if (elem.classList.contains("turned")) {
-//            console.log(elem);
-
-        } else {
-            elem.classList.add("turned");
-            const currentCard = elem.childNodes[3].childNodes[0];
-            cardSet.cardsToMatch.push(currentCard);
-
-            console.log(currentCard);
+        if (!(elem.classList.contains("turned"))) {
+            if (cardSet.cardsToMatch.length < 2) {
+                elem.classList.add("turned");
+                const currentCard = elem.childNodes[3].childNodes[0];
+                cardSet.cardsToMatch.push(currentCard);
+                if (cardSet.cardsToMatch.length == 2) {
+                    checkMatch();
+                }
+            }
         }
-//        console.log(elem);
     }
 
     function checkMatch() {
-
+        let turnedCards = [];
+        for (let i = 0; i < cardSet.cardsToMatch.length; i++) {
+            turnedCards.push(cardSet.cardsToMatch[i].parentNode.parentNode);
+        }
+        if (cardSet.cardsToMatch[0] == cardSet.cardsToMatch[1]) {
+            alert('bravo');
+        } else {
+            for (let i = 0; i < turnedCards.length; i++) {
+                turnedCards[i].classList.add('wrong-card');
+            }
+            setTimeout(function () {
+                for (let i = 0; i < turnedCards.length; i++) {
+                    turnedCards[i].classList.remove('wrong-card', 'turned');
+                }
+            }, 1500);
+        }
+        cardSet.cardsToMatch = [];
+        cardSet.updateMoves();
     }
 
     function updateRating() {

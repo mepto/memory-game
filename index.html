@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Alef|Fredoka+One|Droid+Sans+Mono" rel="stylesheet">
     <link rel="stylesheet" href="css/memory.css">
 </head>
@@ -15,10 +15,11 @@
     <section>
         <form>
             Your level: <select id="nbPairs">
-                <option value="8">Child</option>
-                <option value="12">Man</option>
-                <option value="18">Woman</option>
                 <option value="2">Al S. Heimer</option>
+            <option value="8">Child</option>
+                <option value="12">Man</option>
+                <option value="86">Woman</option>
+
             </select>
             <button id="startGame" class="button-default"><i class="fa fa-refresh"></i> New game</button>
         </form>
@@ -32,18 +33,7 @@
 
     </section>
         <div id="deck">
-            <div class="card">
-                <div class="card-back"></div>
-                <div class="card-front"><i class="fa fa-car"></i></div>
-            </div>
-            <div class="card">
-                <div class="card-back"></div>
-                <div class="card-front"><i class="fa fa-car"></i></div>
-            </div>
-            <div class="card">
-                <div class="card-back"></div>
-                <div class="card-front"><i class="fa fa-car"></i></div>
-            </div>
+            <p>Choose a level, then press the "Start game" button!</p>
         </div>
     </main>
     <script src="js/memory.js"></script>

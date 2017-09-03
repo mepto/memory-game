@@ -62,7 +62,7 @@ option {
     padding: 0 3px 0 0;
 }
 
-.fa-star {
+#rating i {
     color: #ffd900;
 }
 
@@ -93,19 +93,33 @@ main {
 
 .card-front,
 .card-back {
+/*    backface-visibility: hidden;*/
     border-radius: 3px;
     height: 100px;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
+    text-align: center;
     width: 100px;
 }
 
 .card-front {
+    backface-visibility: hidden;
     background: #f7ffea;
-    display: none;
+    transform: rotateY(-180deg);
+}
+
+.turned .card-back {
+    transform: rotateY(180deg);
+    transition: transform 1.0s cubic-bezier(0,.75,.25,1);
+}
+
+.turned .card-front {
+    transform: rotateY(0deg);
+    transition: transform 1.0s cubic-bezier(0,.75,.25,1);
 }
 
 .card-back {
+    backface-visibility: hidden;
     background: linear-gradient(30deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(150deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(30deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(150deg, #79A535 12%, transparent 12.5%, transparent 87%, #79A535 87.5%, #79A535 0), linear-gradient(60deg, #41581D 25%, transparent 25.5%, transparent 75%, #41581D 75%, #41581D 0), linear-gradient(60deg, #41581D 25%, transparent 25.5%, transparent 75%, #41581D 75%, #41581D 0), #BEDE8B;
     background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
     background-size: 16px 28px;
@@ -143,4 +157,9 @@ main {
 #moves:after {
     content: 'moves';
     margin: 0 0 0 5px;
+}
+
+.turned {
+    transform-style: preserve-3d;
+    transition: transform 1.0s cubic-bezier(0,.75,.25,1);
 }
