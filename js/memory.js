@@ -156,7 +156,10 @@
 
 
         if (cardSet.cardsToMatch[0].outerHTML === cardSet.cardsToMatch[1].outerHTML) {
-            console.log('the same exactly');
+            for (let i = 0; i < turnedCards.length; i++) {
+                turnedCards[i].classList.add('matched-card');
+            }
+            gameOver();
         } else {
             console.log('different');
             for (let i = 0; i < turnedCards.length; i++) {
@@ -173,6 +176,10 @@
     }
 
     function updateRating() {
+
+    }
+
+    function gameOver() {
 
     }
 
