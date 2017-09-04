@@ -77,6 +77,9 @@ main {
     margin: 0 0 20px 0;
     padding: 20px;
 }
+#deck {
+    margin: 0 auto;
+}
 
 .card .fa {
     /*    color: #4a006b;*/
@@ -146,7 +149,8 @@ main {
     font-family: 'Droid Sans Mono';
 }
 
-#rating {
+#rating:before {
+    content:'Rating: ';
     font-family: 'Alef', sans-serif;
 }
 
@@ -170,6 +174,12 @@ main {
 .turned {
     transform-style: preserve-3d;
     transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
+}
+
+.unturned {
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
+    transform: rotateY(180deg);
 }
 
 .wrong-card .card-front {
@@ -200,6 +210,10 @@ main {
 
 .wrong-card .fa {
     color: #fff;
+}
+
+.flip-back {
+
 }
 
 @-webkit-keyframes wrongCard {
