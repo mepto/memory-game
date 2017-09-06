@@ -6,6 +6,7 @@ body {
     background: #262626;
     color: #fff;
     font-family: 'Alef', sans-serif;
+    font-size: 16px;
     padding: 5px 10px;
 }
 
@@ -306,15 +307,9 @@ main {
 
 @media screen and (orientation:portrait) and (max-device-width:1080px) {
     h1 {
-        font-size: 80px;
+        font-size: 60px;
     }
-    .button-default,
-    select,
-    option,
-    .fa-refresh,
-    .fa-star,
-    .fa-star-o,
-    p {
-        font-size: 36px;
+    body{
+        font-size: 20px;
     }
 }
