@@ -8,9 +8,10 @@
 
     let ScoreBoard = function () {
         //rating management
-        this.rating = 0;
+        this.rating = 3;
         this.resetRating = function () {
-            this.rating = 0;
+            this.rating = 3;
+            this.updateRating();
         };
         this.updateRating = function () {
             document.getElementById('rating').innerHTML = '';
@@ -111,7 +112,7 @@
     }
 
     function prepareGame() {
-
+        scoreBoard.updateRating();
         scoreBoard.updateTimer();
         //retrieve level selection (==nb of pairs to play with)
         var select = document.getElementById('nbPairs');
@@ -161,7 +162,6 @@
     }
 
     function flipCard(elem) {
-
         if (!(elem.classList.contains("turned"))) {
             if (cardSet.cardsToMatch.length < 2) {
                 elem.classList.add("turned");
@@ -171,7 +171,6 @@
                     setTimeout(function () {
                         checkMatch();
                     }, 600);
-
                 }
             }
         }
@@ -189,9 +188,7 @@
             setTimeout(function () {
                 checkEndGame();
             }, 600);
-
         } else {
-            //            console.log('different');
             for (let i = 0; i < turnedCards.length; i++) {
                 turnedCards[i].classList.add('wrong-card');
             }
@@ -200,15 +197,14 @@
                     turnedCards[i].classList.remove('wrong-card');
                 }
                 for (let i = 0; i < turnedCards.length; i++) {
-                    turnedCards[i].classList.add('unturned');
+                    turnedCards[i].classList.add('flip-back');
                 }
                 setTimeout(function () {
                     for (let i = 0; i < turnedCards.length; i++) {
-                        turnedCards[i].classList.remove('unturned', 'turned');
+                        turnedCards[i].classList.remove('flip-back', 'turned');
                     }
-                }, 1000);
+                }, 800);
             }, 1000);
-
         }
         cardSet.cardsToMatch = [];
         scoreBoard.updateMoves();

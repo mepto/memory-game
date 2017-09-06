@@ -3,9 +3,7 @@
 }
 
 body {
-    /*    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");*/
     background: #262626;
-    /*    background: #9FD846;*/
     color: #fff;
     font-family: 'Alef', sans-serif;
     padding: 5px 10px;
@@ -73,27 +71,23 @@ main {
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");
     border-radius: 5px;
     display: inline-block;
-    overflow: auto;
     margin: 0 0 20px 0;
     padding: 20px;
 }
 #deck {
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card .fa {
-    /*    color: #4a006b;*/
     color: #A53C25;
     font-size: 60px;
 }
 
 .card {
     border-radius: 3px;
-    float: left;
     height: 100px;
-    overflow: visible;
     margin: 15px;
-    position: relative;
     width: 100px;
 }
 
@@ -155,7 +149,8 @@ main {
 }
 
 #timer:before {
-    content: '\f017';
+    content: '\f252';
+/*    content: '\f017';*/
     font-family: 'Fontawesome';
     margin: 0 5px 0 0;
 }
@@ -176,7 +171,7 @@ main {
     transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
 }
 
-.unturned {
+.flip-back {
     transform-style: preserve-3d;
     transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
     transform: rotateY(180deg);
@@ -186,17 +181,17 @@ main {
     -webkit-animation: wrongCard 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     animation: wrongCard 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     background: #e02828;
-    /*
-    -webkit-transition: all 600ms easing’s Bezier curve;
-    transition: all 600ms easing’s Bezier curve;
-*/
+}
+
+.wrong-card .fa {
+    color: #fff;
 }
 
 .matched-card .card-front {
     -webkit-animation-name: rubberBand;
     animation-name: rubberBand;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     background: #c4dd9d;
@@ -206,52 +201,42 @@ main {
     color: #3c6300;
 }
 
-
-
-.wrong-card .fa {
-    color: #fff;
-}
-
-.flip-back {
-
-}
-
 @-webkit-keyframes wrongCard {
     10%,
     90% {
-        transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-3px, 0, 0);
     }
     20%,
     80% {
-        transform: translate3d(2px, 0, 0);
+        transform: translate3d(4px, 0, 0);
     }
     30%,
     50%,
     70% {
-        transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-6px, 0, 0);
     }
     40%,
     60% {
-        transform: translate3d(4px, 0, 0);
+        transform: translate3d(6px, 0, 0);
     }
 }
 @keyframes wrongCard {
     10%,
     90% {
-        transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-3px, 0, 0);
     }
     20%,
     80% {
-        transform: translate3d(2px, 0, 0);
+        transform: translate3d(4px, 0, 0);
     }
     30%,
     50%,
     70% {
-        transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-6px, 0, 0);
     }
     40%,
     60% {
-        transform: translate3d(4px, 0, 0);
+        transform: translate3d(6px, 0, 0);
     }
 }
 
@@ -315,4 +300,20 @@ main {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
+}
+
+@media handheld {
+    h1 {
+        font-size: 80px;
+    }
+
+    .button-default,
+    select,
+    option,
+    .fa-refresh,
+    .fa-star,
+    .fa-star-o {
+        font-size: 36px;
+    }
+
 }
