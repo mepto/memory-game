@@ -49,13 +49,10 @@
             document.getElementById('moves').innerHTML = this.moves;
             if (this.moves < cardSet.length * 2) {
                 this.rating = 3;
-                console.log(this.rating);
             } else if (this.moves < cardSet.length * 3) {
                 this.rating = 2;
-                console.log(this.rating);
             } else {
                 this.rating = 1;
-                console.log(this.rating);
             }
             this.updateRating();
         };
@@ -214,7 +211,14 @@
         const deck = document.getElementsByClassName('matched-card');
         if (deck.length === (cardSet.length * 2)) {
             clearInterval(scoreBoard.timer);
-            alert('terminé' + window.innerWidth);
+            document.getElementsByTagName('header')[0].classList.add('blurred');
+            document.getElementsByTagName('section')[0].classList.add('blurred');
+            document.getElementsByTagName('main')[0].classList.add('blurred');
+            const modal = document.createElement('div');
+            modal.id='modal';
+            document.getElementsByTagName('body')[0].appendChild(modal);
+            document.getElementById('modal').innerHTML = 'you win, motherfucker';
+
         }
     }
 

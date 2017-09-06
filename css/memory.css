@@ -17,8 +17,27 @@ h1 {
     font-weight: 400;
 }
 
+#modal {
+    background: #fff;
+    color: #ff7700;
+    height: 300px;
+    left: 45%;
+    padding: 10px;
+    position: fixed;
+    top: 30%;
+    width: 600px;
+}
 section {
     margin: 15px 0;
+}
+.blurred {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .button-default,
@@ -304,14 +323,9 @@ main {
         transform: scale3d(1, 1, 1);
     }
 }
-/*
 
-@media screen and (orientation:portrait) and (max-device-width:1080px) {
-    h1 {
-        font-size: 60px;
-    }
+@media screen and (orientation:portrait) and (max-device-width:660px) {
     body{
-        font-size: 20px;
+        font-size: 16px;
     }
 }
-*/
