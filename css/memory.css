@@ -74,6 +74,7 @@ main {
     margin: 0 0 20px 0;
     padding: 20px;
 }
+
 #deck {
     display: flex;
     flex-wrap: wrap;
@@ -144,13 +145,13 @@ main {
 }
 
 #rating:before {
-    content:'Rating: ';
+    content: 'Rating: ';
     font-family: 'Alef', sans-serif;
 }
 
 #timer:before {
     content: '\f252';
-/*    content: '\f017';*/
+    /*    content: '\f017';*/
     font-family: 'Fontawesome';
     margin: 0 5px 0 0;
 }
@@ -220,6 +221,7 @@ main {
         transform: translate3d(6px, 0, 0);
     }
 }
+
 @keyframes wrongCard {
     10%,
     90% {
@@ -302,11 +304,11 @@ main {
     }
 }
 
-@media handheld {
+/*
+@media screen and (orientation:portrait) {
     h1 {
         font-size: 80px;
     }
-
     .button-default,
     select,
     option,
@@ -315,5 +317,5 @@ main {
     .fa-star-o {
         font-size: 36px;
     }
-
 }
+*/
