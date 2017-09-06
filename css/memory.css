@@ -304,8 +304,7 @@ main {
     }
 }
 
-/*
-@media screen and (orientation:portrait) {
+@media screen and (orientation:portrait) and (max-device-width:1080px) {
     h1 {
         font-size: 80px;
     }
@@ -314,8 +313,8 @@ main {
     option,
     .fa-refresh,
     .fa-star,
-    .fa-star-o {
+    .fa-star-o,
+    p {
         font-size: 36px;
     }
 }
-*/

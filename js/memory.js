@@ -214,7 +214,7 @@
         const deck = document.getElementsByClassName('matched-card');
         if (deck.length === (cardSet.length * 2)) {
             clearInterval(scoreBoard.timer);
-            alert('terminé');
+            alert('terminé' + window.innerWidth);
         }
     }
 
