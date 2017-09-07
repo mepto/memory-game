@@ -17,27 +17,8 @@ h1 {
     font-weight: 400;
 }
 
-#modal {
-    background: #fff;
-    color: #ff7700;
-    height: 300px;
-    left: 45%;
-    padding: 10px;
-    position: fixed;
-    top: 30%;
-    width: 600px;
-}
 section {
     margin: 15px 0;
-}
-.blurred {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 .button-default,
@@ -71,21 +52,6 @@ option {
     font-size: 16px
 }
 
-.fa-clock {
-    color: #fff;
-}
-
-.fa-star,
-.fa-star-o {
-    color: #ffd900;
-    font-size: 16px;
-    padding: 0 3px 0 0;
-}
-
-#rating i {
-    color: #ffd900;
-}
-
 main {
     /*    background: #8B3926;*/
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");
@@ -99,6 +65,61 @@ main {
     display: flex;
     flex-wrap: wrap;
 }
+
+/** scoreboard **/
+#scoreBoard {
+    display: flex;
+    justify-content: space-around;
+}
+
+#timer,
+#moves,
+#rating {
+    min-width: 100px;
+    text-align: center;
+}
+
+#timer,
+#moves {
+    font-family: 'Droid Sans Mono';
+}
+
+#timer:before,
+#moves:before {
+    font-family: 'Fontawesome';
+    margin: 0 5px 0 0;
+}
+
+#rating:before {
+    content: 'Rating: ';
+    font-family: 'Alef', sans-serif;
+}
+
+#timer:before {
+    content: '\f252';
+}
+
+#moves:before {
+    content: '\f080';
+}
+
+#moves:after {
+    content: 'moves';
+    margin: 0 0 0 5px;
+}
+
+.fa-clock {
+    color: #fff;
+}
+
+.fa-star,
+.fa-star-o {
+    color: #ffd900;
+    padding: 0 3px 0 0;
+}
+
+
+/** all the cards **/
 
 .card .fa {
     color: #A53C25;
@@ -147,45 +168,6 @@ main {
     border: 3px solid #eefcd9;
 }
 
-#scoreBoard {
-    display: flex;
-    justify-content: space-around;
-}
-
-#timer,
-#moves,
-#rating {
-    min-width: 100px;
-    text-align: center;
-}
-
-#timer,
-#moves {
-    font-family: 'Droid Sans Mono';
-}
-
-#rating:before {
-    content: 'Rating: ';
-    font-family: 'Alef', sans-serif;
-}
-
-#timer:before {
-    content: '\f252';
-    /*    content: '\f017';*/
-    font-family: 'Fontawesome';
-    margin: 0 5px 0 0;
-}
-
-#moves:before {
-    content: '\f080';
-    font-family: 'Fontawesome';
-    margin: 0 5px 0 0;
-}
-
-#moves:after {
-    content: 'moves';
-    margin: 0 0 0 5px;
-}
 
 .turned {
     transform-style: preserve-3d;
@@ -209,18 +191,46 @@ main {
 }
 
 .matched-card .card-front {
-    -webkit-animation-name: rubberBand;
-    animation-name: rubberBand;
-    -webkit-animation-duration: 0.75s;
-    animation-duration: 0.75s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+    -webkit-animation: rubberBand 0.75s both;
+    animation: rubberBand 0.75s both;
     background: #c4dd9d;
 }
 
 .matched-card .fa {
     color: #3c6300;
 }
+
+/** modal **/
+
+#modal {
+    background: #fff;
+    border-radius: 5px;
+    color: #ff7700;
+    left: 50%;
+    max-height: calc(100% - 150px);
+    padding: 15px;
+    position: fixed;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    -webkit-animation: blink 1s both;
+    animation: blink 1s both;
+    color: #9FD846;
+    font-family: 'Fredoka One', cursive;
+    font-size: 35px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.blurred {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+/** animations **/
 
 @-webkit-keyframes wrongCard {
     10%,
@@ -324,8 +334,35 @@ main {
     }
 }
 
+@-webkit-keyframes blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+
+/*
 @media screen and (orientation:portrait) and (max-device-width:660px) {
-    body{
+    body {
         font-size: 16px;
     }
 }
+*/

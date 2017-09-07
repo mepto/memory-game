@@ -2,10 +2,13 @@
 
 (function () {
 
-    //but why can shuffle modify it when it's defined as const?
-    const cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribbble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad', 'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon-o', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'user-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-three-quarters', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
+    //array of icons to randomly choose from
+    let cards = ['anchor', 'balance-scale', 'bath', 'battery-2', 'bed', 'beer', 'bell', 'bicycle', 'binoculars', 'birthday-cake', 'bomb', 'book', 'briefcase', 'bug', 'bus', 'cab', 'camera', 'camera-retro', 'car', 'cloud', 'codepen', 'coffee', 'cogs', 'compass', 'credit-card', 'cubes', 'cutlery', 'diamond', 'dribbble', 'eye', 'film', 'fire', 'fire-extinguisher', 'flask', 'gamepad', 'gift', 'github', 'glass', 'hand-spock-o', 'heart', 'key', 'leaf', 'legal', 'life-buoy', 'lightbulb-o', 'linode', 'magic', 'map-signs', 'medkit', 'microchip', 'microphone', 'modx', 'moon-o', 'mortar-board', 'motorcycle', 'music', 'pagelines', 'paint-brush', 'paw', 'pied-piper-alt', 'plane', 'plug', 'puzzle-piece', 'rocket', 'scissors', 'user-secret', 'ship', 'shower', 'snowflake-o', 'subway', 'suitcase', 'superpowers', 'thermometer-three-quarters', 'ticket', 'trash', 'train', 'tree', 'trophy', 'truck', 'tv', 'umbrella', 'university', 'venus-double', 'video-camera', 'wrench'];
 
-
+    /**
+     *   the scoreboard holds the rating, timer and moves for each game
+     *   the class also holds the upadting and reset mechanisms
+     */
     let ScoreBoard = function () {
         //rating management
         this.rating = 3;
@@ -26,20 +29,21 @@
         //timer management
         this.timer = 0;
         this.resetTimer = function () {
-            clearInterval(this.updateTimer);
-            clearInterval(this.timer);
+            //            clearInterval(this.updateTimer);
+            clearInterval(this.delay);
             this.timer = 0;
         };
         this.updateTimer = function () {
             let secs = 0;
             let mins = 0;
-            this.timer = setInterval(function () {
+            this.delay = setInterval(function () {
                 secs++;
                 if (secs == 60) {
                     secs = 0;
                     mins++;
                 }
-                document.getElementById('timer').innerHTML = mins + ':' + ("0" + secs).slice(-2);
+                scoreBoard.timer = mins + ':' + ("0" + secs).slice(-2);
+                document.getElementById('timer').innerHTML = scoreBoard.timer;
             }, 1000);
         };
         //moves management
@@ -62,7 +66,13 @@
         };
     };
 
-    let CardSet = function () {
+    /**
+     *   the card set holds the initial user choice, the card set randomly
+     *   selected accordingly in the gloabl card variable
+     *   the two cards that were turned in one user attempt
+     */
+
+    const CardSet = function () {
         this.length = 8;
         this.cards = [];
         this.cardsToMatch = [];
@@ -76,15 +86,25 @@
     let cardSet;
     let scoreBoard;
 
+    //start the listener!
     listenButton();
 
+    //the listener is attached to the body as the success modal
+    //will be added later on to the dom and also contains a button
     function listenButton() {
-        document.getElementById('startGame').addEventListener("click", function (e) {
-            e.preventDefault();
-            clearBoard();
-        })
+        document.body.addEventListener('click', function (event) {
+            if (event.target.classList.contains('startGame')) {
+                event.preventDefault();
+                if (document.body.children[0].classList.contains('blurred')) {
+                    document.getElementById('modal').remove();
+                    blurredBackground();
+                }
+                clearBoard();
+            }
+        });
     }
 
+    //listener for the set of cards clicked by the player per turn
     function listenCards() {
         for (let i = 0; i < cardSet.cards.length; i++) {
             document.getElementsByClassName('card')[i].addEventListener("click", function (e) {
@@ -93,8 +113,8 @@
         }
     }
 
+    //reset the board on click on "play!" or "play again!" buttons
     function clearBoard() {
-
         document.getElementById('deck').innerHTML = '';
         if (scoreBoard instanceof ScoreBoard) {
             scoreBoard.resetTimer();
@@ -105,6 +125,7 @@
         // set new cards and scoreboard
         cardSet = new CardSet();
         scoreBoard = new ScoreBoard();
+        //get to it
         prepareGame();
     }
 
@@ -145,9 +166,11 @@
         return allCards;
     }
 
+    //add cards on the board
     function displayCards() {
         var deck = document.getElementById('deck');
         for (let i = 0; i < cardSet.cards.length; i++) {
+            //create and append each card to the board
             let currentCard = document.createElement('div');
             currentCard.className = 'card';
             document.getElementById('deck').appendChild(currentCard);
@@ -155,15 +178,22 @@
                     <div class="card-back"></div>\
                     <div class="card-front"><i class="fa fa-' + cardSet.cards[i] + '"></i></div>';
         }
+        //launch listener once cards are on the board
         listenCards();
     }
 
+    //card turner
     function flipCard(elem) {
+        //clcked element should not already be turned
         if (!(elem.classList.contains("turned"))) {
+            //there shouldn't be already 2 cards to compare
             if (cardSet.cardsToMatch.length < 2) {
                 elem.classList.add("turned");
+                //retrieve icon on card-front
                 const currentCard = elem.childNodes[3].childNodes[0];
+                //add to comparator array
                 cardSet.cardsToMatch.push(currentCard);
+                // if comparator array is full, check the match
                 if (cardSet.cardsToMatch.length == 2) {
                     setTimeout(function () {
                         checkMatch();
@@ -173,12 +203,16 @@
         }
     }
 
+    //compare the card-front contents
     function checkMatch() {
-        let turnedCards = [];
+        //make array with card parent element
+        const turnedCards = [];
         for (let i = 0; i < cardSet.cardsToMatch.length; i++) {
             turnedCards.push(cardSet.cardsToMatch[i].parentNode.parentNode);
         }
         if (cardSet.cardsToMatch[0].outerHTML === cardSet.cardsToMatch[1].outerHTML) {
+            //if it matches, add class and check if game is over
+            //timeouts leave time for animations to complete
             for (let i = 0; i < turnedCards.length; i++) {
                 turnedCards[i].classList.add('matched-card');
             }
@@ -186,6 +220,7 @@
                 checkEndGame();
             }, 600);
         } else {
+            //if wrong, add class, then turn cards around again
             for (let i = 0; i < turnedCards.length; i++) {
                 turnedCards[i].classList.add('wrong-card');
             }
@@ -203,26 +238,44 @@
                 }, 800);
             }, 1000);
         }
+        //Reset comparator
         cardSet.cardsToMatch = [];
+        //Update nb of moves
         scoreBoard.updateMoves();
     }
 
+    //check game status after last successful match
     function checkEndGame() {
+        //check the amount of cards for the nb of times the matched-card class is in the deck on the board
         const deck = document.getElementsByClassName('matched-card');
         if (deck.length === (cardSet.length * 2)) {
-            clearInterval(scoreBoard.timer);
-            document.getElementsByTagName('header')[0].classList.add('blurred');
-            document.getElementsByTagName('section')[0].classList.add('blurred');
-            document.getElementsByTagName('main')[0].classList.add('blurred');
-            const modal = document.createElement('div');
-            modal.id='modal';
-            document.getElementsByTagName('body')[0].appendChild(modal);
-            document.getElementById('modal').innerHTML = 'you win, motherfucker';
-
+            //stop the timer
+            clearInterval(scoreBoard.delay);
+            //add the end of game modal
+            createModal();
         }
     }
 
-    //add stuff to local storage?
+    //display end of game modal
+    function createModal() {
+        blurredBackground();
+        //content of the modal, including moves,
+        //timer, rating and play button
+        const modalContent = '<h2>CONGRATULATIONS!</h2><p>You cleared the board in ' + scoreBoard.moves + ' moves and got a rating of ' + scoreBoard.rating + ' stars. Your time was ' + scoreBoard.timer + '.</p> <button class="startGame button-default"><i class="fa fa-refresh"></i> Play again!</button>'
+        //create a new element, give it an id
+        const modal = document.createElement('div');
+        modal.id = 'modal';
+        //then append it and give it its content
+        document.getElementsByTagName('body')[0].appendChild(modal);
+        document.getElementById('modal').innerHTML = modalContent;
+    }
 
+    //toggles the class that blurs the background
+    // of the end of game modal
+    function blurredBackground() {
+        document.getElementsByTagName('header')[0].classList.toggle('blurred');
+        document.getElementsByTagName('section')[0].classList.toggle('blurred');
+        document.getElementsByTagName('main')[0].classList.toggle('blurred');
+    }
 
 })();
