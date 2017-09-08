@@ -57,7 +57,6 @@ main {
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/low_contrast_linen.png");
     border-radius: 5px;
     display: inline-block;
-    margin: 0 0 20px 0;
     padding: 20px;
 }
 
@@ -92,6 +91,10 @@ main {
     margin: 0 5px 0 0;
 }
 
+#rating {
+    margin: 0 4px 0 0;
+}
+
 #rating:before {
     content: 'Rating: ';
     font-family: 'Alef', sans-serif;
@@ -117,7 +120,7 @@ main {
 .fa-star,
 .fa-star-o {
     color: #ffd900;
-    padding: 0 3px 0 0;
+    padding: 0 2px 0 0;
 }
 
 
@@ -361,12 +364,16 @@ h2 {
     }
 }
 
-@media screen and (orientation:portrait) and (max-device-width:660px) {
+@media screen and (max-device-width:660px) {
     body {
         font-size: 14px;
     }
     h1 {
         font-size: 40px;
+        margin: 0;
+    }
+    main {
+        padding: 5px;
     }
     .card {
         height: 60px;
@@ -382,4 +389,8 @@ h2 {
         padding: 7px 5px 5px 5px;
         width: 60px;
     }
+    h2 {
+        font-size: 20px;
+    }
+
 }
