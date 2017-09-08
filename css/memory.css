@@ -368,9 +368,6 @@ h2 {
     h1 {
         font-size: 40px;
     }
-    #moves {
-        order: 1;
-    }
     .card {
         height: 60px;
         margin: 5px;
