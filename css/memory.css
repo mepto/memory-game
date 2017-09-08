@@ -15,6 +15,7 @@ h1 {
     font-family: 'Fredoka One', cursive;
     font-size: 50px;
     font-weight: 400;
+    margin: 0;
 }
 
 section {
@@ -367,28 +368,28 @@ h2 {
 @media screen and (max-device-width:660px) {
     body {
         font-size: 14px;
+        margin: 0px;
         padding: 3px;
     }
     h1 {
         font-size: 40px;
-        margin: 0;
     }
     main {
         padding: 7px;
     }
     .card {
-        height: 50px;
+        height: 52px;
         margin: 5px;
-        width: 50px;
+        width: 52px;
     }
     .card .fa {
-        font-size: 35px;
+        font-size: 30px;
     }
     .card-front,
     .card-back {
-        height: 50px;
-        padding: 7px 5px 5px 5px;
-        width: 50px;
+        height: 52px;
+        padding: 5px;
+        width: 52px;
     }
     h2 {
         font-size: 25px;
