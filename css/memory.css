@@ -66,7 +66,9 @@ main {
     flex-wrap: wrap;
 }
 
+
 /** scoreboard **/
+
 #scoreBoard {
     display: flex;
     justify-content: space-around;
@@ -168,7 +170,6 @@ main {
     border: 3px solid #eefcd9;
 }
 
-
 .turned {
     transform-style: preserve-3d;
     transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
@@ -200,6 +201,7 @@ main {
     color: #3c6300;
 }
 
+
 /** modal **/
 
 #modal {
@@ -229,6 +231,7 @@ h2 {
     filter: blur(5px);
     -webkit-filter: blur(5px);
 }
+
 
 /** animations **/
 
@@ -358,11 +361,8 @@ h2 {
     }
 }
 
-
-
 @media screen and (orientation:portrait) and (max-device-width:660px) {
     body {
-        background: #fff;
         font-size: 14px;
     }
     h1 {
@@ -372,7 +372,17 @@ h2 {
         order: 1;
     }
     .card {
+        height: 60px;
         margin: 5px;
+        width: 60px;
+    }
+    .card .fa {
+        font-size: 45px;
+    }
+    .card-front,
+    .card-back {
+        height: 60px;
+        padding: 7px 5px 5px 5px;
+        width: 60px;
     }
 }
-
