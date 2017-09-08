@@ -378,18 +378,18 @@ h2 {
         padding: 7px;
     }
     .card {
-        height: 52px;
+        height: 55px;
         margin: 5px;
-        width: 52px;
+        width: 55px;
     }
     .card .fa {
         font-size: 30px;
     }
     .card-front,
     .card-back {
-        height: 52px;
-        padding: 5px;
-        width: 52px;
+        height: 55px;
+        padding: 10px 5px 5px 5px;
+        width: 55px;
     }
     h2 {
         font-size: 25px;
