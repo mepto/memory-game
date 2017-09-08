@@ -362,7 +362,17 @@ h2 {
 
 @media screen and (orientation:portrait) and (max-device-width:660px) {
     body {
-        font-size: 20px;
+        background: #fff;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    #moves {
+        order: 1;
+    }
+    .card {
+        margin: 5px;
     }
 }
 
