@@ -367,7 +367,7 @@ h2 {
 @media screen and (max-device-width:660px) {
     body {
         font-size: 14px;
-        padding: : 3px;
+        padding: 3px;
     }
     h1 {
         font-size: 40px;
@@ -382,7 +382,7 @@ h2 {
         width: 50px;
     }
     .card .fa {
-        font-size: 40px;
+        font-size: 35px;
     }
     .card-front,
     .card-back {
