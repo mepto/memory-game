@@ -359,10 +359,10 @@ h2 {
 }
 
 
-/*
+
 @media screen and (orientation:portrait) and (max-device-width:660px) {
     body {
-        font-size: 16px;
+        font-size: 20px;
     }
 }
-*/
+

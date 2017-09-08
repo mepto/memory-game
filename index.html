@@ -1,17 +1,14 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     <title>Matching Game</title>
     <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Alef|Fredoka+One|Droid+Sans+Mono" rel="stylesheet">
     <link rel="stylesheet" href="css/memory.css">
 </head>
-
 <body>
-
     <header>
         <h1>Matching game</h1>
     </header>
@@ -19,22 +16,19 @@
         <form>
             Your level: <select id="nbPairs">
                 <option value="2">Al S. Heimer</option>
-            <option value="8">Child</option>
+                <option value="8">Child</option>
                 <option value="12">Man</option>
                 <option value="18">Woman</option>
-
             </select>
             <button class="startGame button-default"><i class="fa fa-refresh"></i> Play!</button>
         </form>
     </section>
-
     <main>
         <section id="scoreBoard">
             <span id="rating">_ _ _
         </span>
             <span id="moves">0</span>
             <span id="timer">0:00</span>
-
         </section>
         <div id="deck">
             <p>Choose a level, then press the "Play!" button!</p>
@@ -42,5 +36,4 @@
     </main>
     <script src="js/memory.js"></script>
 </body>
-
 </html>
